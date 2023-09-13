@@ -1,6 +1,9 @@
-# starts and configures sshd sets root passwd and sets sftp enviroment
-# parameters jailname root-passwd in BASTILLE created jails, using zfs.
-usage bootstrap-ssh.sh jailname root-passwd
+# Configures sshd in BASTILLE created jails, using zfs
+sets root passwd and prepares sftp enviroment in sshd
+parameters jailname root-passwd.
+
+usage: bootstrap-ssh.sh jailname root-passwd
+
 Jails are located here:
 JAILPATH="/usr/local/bastille/jails/${JAIL}/root"
 1. test wheather jail exists
@@ -13,5 +16,7 @@ ForceCommand internal-sftp
 AllowTcpForwarding no
 X11Forwarding no
 4. Adds sftponly group
-5. Generates ssh-keys type: ecdsa
+5. sets jails root password
+6. Generates ssh-keys type: ecdsa for jails root
+(interaction required)
 
